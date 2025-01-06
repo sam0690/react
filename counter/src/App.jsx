@@ -6,12 +6,12 @@ import './App.css'
 
 function App() {
 
-  let [counter , setcounter] = useState(15)
+  let [counter , setcounter] = useState(0)
   let [value , setvalue] = useState(0)
 
 
   const increasecounter  = () => {
-    if (counter > 19){
+    if (counter < 20){
       console.log("this value cannot be further added acc to program .")
     }else{
       counter = counter + value
