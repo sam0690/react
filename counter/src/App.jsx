@@ -11,12 +11,14 @@ function App() {
 
 
   const increasecounter  = () => {
-    if (counter < 20){
-      console.log("this value cannot be further added acc to program .")
-    }else{
+    if (counter <= 20){
       counter = counter + value
       setcounter(counter)
       console.log(counter)
+      
+    }else{
+     
+      console.log("this value cannot be further added acc to program .")
     }
     
   }
