@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <div className="w-full h-screen duration-200" style={{backgroundColor: color}}>
-      <h1 className="flex justify-center text-black font-mono font-bold text-2xl py-5 antialiased hover:subpixel-antialiased">Background Changer</h1>
+      <h1 className="flex justify-center text-black font-mono font-bold text-2xl py-5">Background Changer</h1>
       <div className="fixed flex flex-wrap justify-center bottom-10 inset-x-4 px-5">
         <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-3 rounded-3xl">
           <button onClick={() => setColor("red")} className="outline-none px-4 py-1 rounded-full text-white shadow-lg" style={{backgroundColor: "red"}}>Red</button>
