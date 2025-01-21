@@ -1,4 +1,4 @@
-import { useState , useCallback } from 'react'
+import { useState , useCallback, useEffect ,useRef } from 'react'
 import './App.css'
 
 function App() {
@@ -7,37 +7,63 @@ function App() {
   const [charAllow , setcharAllow] = useState(false)
   const [password , setpassword] = useState("")
 
-  const  passwordGenertor = useCallback(()=>{
+  const  passwordGenerator = useCallback(()=>{
     let pass = ''
     let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-    if (numAllow) str+='0123456789'
-    if (charAllow) str+='!@#$%^*()_-+[]{}:;"|<>?|€'
+    if (numAllow) {str+='0123456789'}
+    if (charAllow) {str+='!@#$%^*()_-+[]{}:;"|<>?|€'}
+    for (let i=1 ; i < length; i++){
+      let char = Math.floor(Math.random() * str.length + 1) 
+      pass += str.charAt(char)
+    }
+    setpassword(pass)
 
   }, [numAllow,charAllow,length,setpassword])
+
+  useEffect(()=>{
+    passwordGenerator()
+  },[numAllow,charAllow,length,setpassword])
+
+
+  let slider = document.querySelector("#slider")
 
 
   return (
     <>
-    <div className="container">
-
-      <h1 className='text-4xl text-center'>Password Generator</h1>
-
-      {/* <input type="text" className='text-4xl' /> */}
-
-      <div className='mt-3 '>
-        <input type="range" defaultValue={0} max={16} min={8} />
-        <label htmlFor="" className='text-2xl text-center'>Length : {length}</label>
-        <input type="checkbox" onClick={setnumAllow}/>
-        <label htmlFor="" >Numbers</label>
-        <input type="checkbox" onClick={setcharAllow} />
-        <label htmlFor="">Characters</label>
+    <div className='conatiner'>
+      <h2 className='title'>Password Generator</h2>
+      <div className="top">
+     
+        <input type="text" placeholder='passeord' value={password} />
+        <button className='outline-none h-5 w-full rounded-md ' id="btn">
+          copy
+        </button>
       </div>
 
-     
+      <div className='displaybox'>
+        <input type="range" id='slider' defaultValue={8} max={16} min={8} value={length} onInput={()=>{
+          setLength(slider.value)
+          console.log("WTHA THE FUCK")}}
+        />
+        <label htmlFor="" className='label' >Length : {length}</label>
 
+        <input type="checkbox" onClick={()=>{
+          if (numAllow==true) {setnumAllow(false)
+          }
+          else {setnumAllow(true)
+          }
+        }}/>
+        <label htmlFor="" className='label' >Numbers</label>
+
+        <input type="checkbox" onClick={()=>{
+          if (charAllow==true) {setcharAllow(false) 
+            }
+            else {setcharAllow(true)
+            }
+        }}/>
+        <label htmlFor="" className='label' >Characters</label>
+      </div>
     </div>
-   
-
     </>
   )
 }
