@@ -33,11 +33,11 @@ function App() {
   return (
     <>
      <div className='flex-col bg-green-300 rounded-md h-full w-max m-5 justify-center p-6'>
-      <h2 className='text-2xl'>Password Generator</h2>
+      <h2 className='text-2xl p-3'>Password Generator</h2>
       <div className=" flex-auto justify-center h-max align-middle ">
      
-        <input className='outline-none' type="text" placeholder='passeord' value={password} />
-        <button className='justify-center  rounded-md bg-pink-300 text-10px p-5 mx-3 text-center'  id="btn">   Copy 
+        <input className='outline-none p-2 h-8 text-md rounded-md' type="text" placeholder='passeord' value={password} />
+        <button className='justify-center rounded-md bg-pink-300 text-10px p-5 mx-3 text-center'  id="btn">   Copy 
         </button>
       </div>
 
