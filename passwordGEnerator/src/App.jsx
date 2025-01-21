@@ -30,18 +30,18 @@ function App() {
 
   return (
     <>
-    <div className='conatiner'>
+    <div className='h-max w-max bg-orange-600 text-2xl'>
       <h2 className='title'>Password Generator</h2>
       <div className="top">
      
         <input type="text" placeholder='passeord' value={password} />
-        <button className='outline-none h-5 w-full rounded-md ' id="btn">
+        <button className='outline-none h-5 w-full rounded-md' id="btn">
           copy
         </button>
       </div>
 
       <div className='displaybox'>
-        <input type="range" id='slider' defaultValue={8} max={16} min={8} value={length} onInput={()=>{
+        <input type="range" id='slider'  max={16} min={8} value={length} onChange={()=>{
           setLength(slider.value)
           console.log("WTHA THE FUCK")}}
         />
