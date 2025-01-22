@@ -23,15 +23,12 @@ function App() {
   
     }, [numAllow,charAllow,length,setpassword])
 
-    const copyPassword = useCallback(()=>{
-      // passwordRef.current?.select();
-      if (passwordRef.current){
-        passwordRef.current.select();
-      }
-      passwordRef.current?.setselectionRange(0,999);
-      window.navigator.clipboard.writeText(password)
 
-    },[password])
+    const copyPassword = useCallback(() => {
+      window.navigator.clipboard.writeText(password)
+      alert("Your password has been copied to clipboard")
+    }, [password])
+  
   
     useEffect(()=>{
       passwordGenerator()
