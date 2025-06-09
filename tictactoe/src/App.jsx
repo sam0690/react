@@ -25,6 +25,9 @@ function App() {
       <button id="reset-btn" onClick="resetGame()">Reset Game</button>
       <p id="status"></p>
     </div>
+
+
+    
     </>
   )
 }
